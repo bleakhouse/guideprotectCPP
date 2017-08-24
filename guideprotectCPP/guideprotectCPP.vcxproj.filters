@@ -7,6 +7,33 @@
     </ClCompile>
     <ClCompile Include="UrlProtQuery.cpp" />
     <ClCompile Include="WhiteUrl.cpp" />
+    <ClCompile Include="RedisClient.cpp">
+      <Filter>Redis</Filter>
+    </ClCompile>
+    <ClCompile Include="TestHash.cpp">
+      <Filter>Redis</Filter>
+    </ClCompile>
+    <ClCompile Include="TestBase.cpp">
+      <Filter>Redis</Filter>
+    </ClCompile>
+    <ClCompile Include="TestClient.cpp">
+      <Filter>Redis</Filter>
+    </ClCompile>
+    <ClCompile Include="GPRedis.cpp">
+      <Filter>Hiredis</Filter>
+    </ClCompile>
+    <ClCompile Include="CyberInterceptor.cpp">
+      <Filter>Gpengine</Filter>
+    </ClCompile>
+    <ClCompile Include="HttpParsr.cpp">
+      <Filter>Gpengine</Filter>
+    </ClCompile>
+    <ClCompile Include="GPengine.cpp">
+      <Filter>Gpengine</Filter>
+    </ClCompile>
+    <ClCompile Include="Config.cpp">
+      <Filter>Config</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Loging">
@@ -15,6 +42,15 @@
     <Filter Include="Redis">
       <UniqueIdentifier>{a9396f27-b7b4-4172-ab33-79f7a0edae31}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Hiredis">
+      <UniqueIdentifier>{d96bc817-c067-4891-a9af-01251cfa9122}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Gpengine">
+      <UniqueIdentifier>{fb0a52af-87b4-4e26-b43b-68962fdf18c4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Config">
+      <UniqueIdentifier>{fc4a92fd-1d68-4e24-b0a1-f9b0e3607ba7}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="SaveVisitLog.h">
@@ -22,5 +58,38 @@
     </ClInclude>
     <ClInclude Include="UrlProtQuery.h" />
     <ClInclude Include="WhiteUrl.h" />
+    <ClInclude Include="RedisClient.hpp">
+      <Filter>Redis</Filter>
+    </ClInclude>
+    <ClInclude Include="TestHash.hpp">
+      <Filter>Redis</Filter>
+    </ClInclude>
+    <ClInclude Include="TestBase.hpp">
+      <Filter>Redis</Filter>
+    </ClInclude>
+    <ClInclude Include="TestClient.hpp">
+      <Filter>Redis</Filter>
+    </ClInclude>
+    <ClInclude Include="GPRedis.h">
+      <Filter>Hiredis</Filter>
+    </ClInclude>
+    <ClInclude Include="CyberInterceptor.h">
+      <Filter>Gpengine</Filter>
+    </ClInclude>
+    <ClInclude Include="HttpParsr.h">
+      <Filter>Gpengine</Filter>
+    </ClInclude>
+    <ClInclude Include="GPengine.h">
+      <Filter>Gpengine</Filter>
+    </ClInclude>
+    <ClInclude Include="Config.h">
+      <Filter>Config</Filter>
+    </ClInclude>
+    <ClInclude Include="GpComdef.h">
+      <Filter>Gpengine</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Xsd Include="config.conf" />
   </ItemGroup>
 </Project>

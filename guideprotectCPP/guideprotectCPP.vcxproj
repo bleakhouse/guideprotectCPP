@@ -61,15 +61,44 @@
   <ImportGroup Label="PropertySheets" />
   <PropertyGroup Label="UserMacros" />
   <ItemGroup>
+    <ClCompile Include="Config.cpp" />
+    <ClCompile Include="CyberInterceptor.cpp" />
+    <ClCompile Include="GPengine.cpp" />
+    <ClCompile Include="GPRedis.cpp" />
+    <ClCompile Include="HttpParsr.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="RedisClient.cpp" />
     <ClCompile Include="SaveVisitLog.cpp" />
+    <ClCompile Include="TestBase.cpp" />
+    <ClCompile Include="TestClient.cpp" />
+    <ClCompile Include="TestHash.cpp" />
     <ClCompile Include="UrlProtQuery.cpp" />
     <ClCompile Include="WhiteUrl.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="CyberInterceptor.h" />
+    <ClInclude Include="GpComdef.h" />
+    <ClInclude Include="GPengine.h" />
+    <ClInclude Include="GPRedis.h" />
+    <ClInclude Include="HttpParsr.h" />
+    <ClInclude Include="RedisClient.hpp" />
     <ClInclude Include="SaveVisitLog.h" />
+    <ClInclude Include="TestBase.hpp" />
+    <ClInclude Include="TestClient.hpp" />
+    <ClInclude Include="TestHash.hpp" />
     <ClInclude Include="UrlProtQuery.h" />
     <ClInclude Include="WhiteUrl.h" />
+    <ClInclude Include="Config.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <Xsd Include="config.conf">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|ARM'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x86'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|ARM'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x86'">true</ExcludedFromBuild>
+    </Xsd>
   </ItemGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
@@ -78,7 +107,7 @@
       <AdditionalIncludeDirectories>$(StlIncludeDirectories);%(AdditionalIncludeDirectories);G:/linux/linux_include</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
-      <LibraryDependencies>tins;pcap;hiredis</LibraryDependencies>
+      <LibraryDependencies>pcap;hiredis;pthread;tins</LibraryDependencies>
       <AdditionalDependencies>$(StlAdditionalDependencies);%(AdditionalDependencies);</AdditionalDependencies>
       <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories);"G:/linux/linux_lib"</AdditionalLibraryDirectories>
       <AdditionalOptions>

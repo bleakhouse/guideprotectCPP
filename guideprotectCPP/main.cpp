@@ -6,7 +6,13 @@
 #include "SaveVisitLog.h"
 #include "UrlProtQuery.h"
 #include "WhiteUrl.h"
-bool doo(Tins::PDU &some_pdu) {
+#include "TestHash.hpp"
+#include "HttpParsr.h"
+#include "GPengine.h"
+#include "Config.h"
+
+
+bool dootest(Tins::PDU &some_pdu) {
 	// Search for it. If there is no IP PDU in the packet, 
 	// the loop goes on
 	const Tins::IP &ip = some_pdu.rfind_pdu<Tins::IP>(); // non-const works as well
@@ -22,7 +28,7 @@ void test() {
 	config.set_immediate_mode(true);
 	config.set_filter("ip src 192.168.0.100");
 	Tins::Sniffer sniffer("eth0", config);
-	sniffer.sniff_loop(doo);
+	sniffer.sniff_loop(dootest);
 }
 int  testpcap()
 {
@@ -64,9 +70,48 @@ int testhiredis()
 
 }
 
+//////////////////////////////////////////////////////////////////////////
+
+void myHttpInfoCallback(CHttpGetInfo *pInfo)
+{
+	std::cout << "im in " << __FUNCTION__ << std::endl;
+
+	if (strstr(pInfo->m_host.c_str(), "yiyiha"))
+	{
+		pInfo->m_redirect_url = "http://www.baidu.com";
+		pInfo->m_handle_result = URL_HANDLE_RESULT_REDIRECT;
+	}
+
+}
+
+void testconfig()
+{
+
+		int port;
+		std::string ipAddress;
+		std::string username;
+		std::string password;
+		const char ConfigFile[] = "config.ini";
+		Config configSettings(ConfigFile);
+
+		port = configSettings.Read("port", 0);
+		ipAddress = configSettings.Read("ipAddress", ipAddress);
+		username = configSettings.Read("username", username);
+		password = configSettings.Read("password", password);
+		std::cout << "port:" << port << std::endl;
+		std::cout << "ipAddress:" << ipAddress << std::endl;
+		std::cout << "username:" << username << std::endl;
+		std::cout << "password:" << password << std::endl;
+	
+}
+
 int main() {
+
 	testhiredis();
 	printf("hello from guideprotectCPP!1\n");
+
+	CGPengine engine;
+	engine.start(myHttpInfoCallback);
 
 	//test();
 }
